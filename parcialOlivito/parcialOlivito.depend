@@ -1,0 +1,77 @@
+# depslib dependency file v1.0
+1602895222 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"auto.h"
+	"utn.h"
+	"hardcodeo.h"
+	"marca.h"
+	"color.h"
+
+1602887064 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+
+1602887282 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"marca.h"
+
+1602886196 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1602896368 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"color.h"
+	"marca.h"
+	"auto.h"
+	"servicios.h"
+	"trabajo.h"
+
+1602889450 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\hardcodeo.h
+
+1602893559 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\auto.h
+	"marca.h"
+	"color.h"
+
+1602886196 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\utn.h
+
+1602887064 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\color.h
+
+1602887282 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\marca.h
+
+1602893916 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicios.h"
+
+1602893916 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\servicios.h
+
+1602895222 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\trabajo.h
+	"marca.h"
+	"color.h"
+	"auto.h"
+	"servicios.h"
+
+1602896345 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"trabajo.h"
+	"auto.h"
+	"servicios.h"
+	"utn.h"
+	"marca.h"
+
