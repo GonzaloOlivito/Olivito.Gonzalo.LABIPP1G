@@ -9,6 +9,21 @@
 #include "utn.h"
 #include "trabajo.h"
 
+/** \brief Funcion que abarca el submenu de informes y recibe todas las estructuras
+ *
+ * \param vec[] eAuto
+ * \param tam int
+ * \param colores[] eColor
+ * \param tamc int
+ * \param marcas[] eMarca
+ * \param tamM int
+ * \param trabajos[] eTrabajo
+ * \param tamT int
+ * \param servicios[] eServicio
+ * \param tamS int
+ * \return void
+ *
+ */
 void informes(eAuto vec[], int tam, eColor colores[], int tamc, eMarca marcas[], int tamM, eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS)
 {
     char respuesta;
@@ -55,6 +70,11 @@ void informes(eAuto vec[], int tam, eColor colores[], int tamc, eMarca marcas[],
 
 }
 
+/** \brief Funcion que contiene el subMenu de informes
+ *
+ * \return int
+ *
+ */
 int menuInformes()
 {
     int opcion;
@@ -76,6 +96,21 @@ int menuInformes()
     return opcion;
 }
 
+/** \brief Funcion que informa los autos separados por color
+ *
+ * \param vec[] eAuto
+ * \param tam int
+ * \param marcas[] eMarca
+ * \param tamM int
+ * \param colores[] eColor
+ * \param tamC int
+ * \param trabajos[] eTrabajo
+ * \param tamT int
+ * \param servicios[] eServicio
+ * \param tamS int
+ * \return void
+ *
+ */
 void informarAutosPorColor(eAuto vec[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS)
 {
     int idColor;
@@ -103,6 +138,21 @@ void informarAutosPorColor(eAuto vec[], int tam, eMarca marcas[], int tamM, eCol
 
 }
 
+/** \brief Funcion que informa los autos filtrados por marca
+ *
+ * \param vec[] eAuto
+ * \param tam int
+ * \param marcas[] eMarca
+ * \param tamM int
+ * \param colores[] eColor
+ * \param tamC int
+ * \param trabajos[] eTrabajo
+ * \param tamT int
+ * \param servicios[] eServicio
+ * \param tamS int
+ * \return void
+ *
+ */
 void informarAutosPorMarca(eAuto vec[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS)
 {
     int idMarca;
@@ -130,6 +180,21 @@ void informarAutosPorMarca(eAuto vec[], int tam, eMarca marcas[], int tamM, eCol
 
 }
 
+/** \brief Funcion que informa el auto mas viejo
+ *
+ * \param autos[] eAuto
+ * \param tam int
+ * \param marcas[] eMarca
+ * \param tamM int
+ * \param colores[] eColor
+ * \param tamC int
+ * \param trabajos[] eTrabajo
+ * \param tamT int
+ * \param servicios[] eServicio
+ * \param tamS int
+ * \return void
+ *
+ */
 void informarAutoMasViejo(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS)
 {
     system("cls");
@@ -162,6 +227,21 @@ void informarAutoMasViejo(eAuto autos[], int tam, eMarca marcas[], int tamM, eCo
 
 }
 
+/** \brief Funcion que separa los autos por marca
+ *
+ * \param vec[] eAuto
+ * \param tam int
+ * \param marcas[] eMarca
+ * \param tamM int
+ * \param colores[] eColor
+ * \param tamc int
+ * \param trabajos[] eTrabajo
+ * \param tamT int
+ * \param servicios[] eServicio
+ * \param tamS int
+ * \return void
+ *
+ */
 void autosSeparadosPorMarca(eAuto vec[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamc, eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS)
 {
       system("cls");
@@ -186,6 +266,21 @@ void autosSeparadosPorMarca(eAuto vec[], int tam, eMarca marcas[], int tamM, eCo
     }
 }
 
+/** \brief Funcion que lista los autos por marca y color
+ *
+ * \param vec[] eAuto
+ * \param tam int
+ * \param marcas[] eMarca
+ * \param tamM int
+ * \param colores[] eColor
+ * \param tamc int
+ * \param trabajos[] eTrabajo
+ * \param tamT int
+ * \param servicios[] eServicio
+ * \param tamS int
+ * \return void
+ *
+ */
 void autosListadosPorMarcaYColor(eAuto vec[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamc, eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS)
 {
     system("cls");
@@ -220,6 +315,21 @@ void autosListadosPorMarcaYColor(eAuto vec[], int tam, eMarca marcas[], int tamM
 
 }
 
+/** \brief Funcion que informa los trabajos realizados a un auto
+ *
+ * \param vec[] eAuto
+ * \param tam int
+ * \param marcas[] eMarca
+ * \param tamM int
+ * \param colores[] eColor
+ * \param tamc int
+ * \param trabajos[] eTrabajo
+ * \param tamT int
+ * \param servicios[] eServicio
+ * \param tamS int
+ * \return void
+ *
+ */
 void trabajosUnAuto(eAuto vec[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamc, eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS)
 {
 
@@ -251,6 +361,21 @@ void trabajosUnAuto(eAuto vec[], int tam, eMarca marcas[], int tamM, eColor colo
     }
 }
 
+/** \brief Funcion que informa el costo total de los trabajos realizados a un auto
+ *
+ * \param vec[] eAuto
+ * \param tam int
+ * \param marcas[] eMarca
+ * \param tamM int
+ * \param colores[] eColor
+ * \param tamc int
+ * \param trabajos[] eTrabajo
+ * \param tamT int
+ * \param servicios[] eServicio
+ * \param tamS int
+ * \return void
+ *
+ */
 void importesPorAuto(eAuto vec[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamc, eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS)
 {
   int indicePatente;

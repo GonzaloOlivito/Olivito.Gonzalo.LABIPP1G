@@ -104,10 +104,9 @@ int altaAuto(eAuto vec[], int tam, eColor colores[], int tamc, eMarca marcas[], 
     if(libre==-1)
     {
         printf("No hay lugar\n");
-    }
-    else
-    {
-            getStringAlphaNum(7,"Ingrese la patente del auto (XXX123):",vec[libre].patentes);
+    }else{
+
+     getStringAlphaNum(7,"Ingrese la patente del auto (XXX123):",vec[libre].patentes);
             getIntRange(&vec[libre].modelo,1950,2020,"Ingrese el modelo del auto: ");
             printf("\n");
             listarMarcas(marcas,tamM);
@@ -116,11 +115,15 @@ int altaAuto(eAuto vec[], int tam, eColor colores[], int tamc, eMarca marcas[], 
             listarColores(colores,tamc);
             getIntRange(&vec[libre].idColor,5000,5004,"Ingrese el id color: ");
             vec[libre].id=idAuto;
+
             vec[libre].isEmpty=0;
+
             todoOk=1;
             printf("\nAlta exitosa! \n");
-        }
-        return todoOk;
+
+
+    }
+     return todoOk;
     }
 
 
