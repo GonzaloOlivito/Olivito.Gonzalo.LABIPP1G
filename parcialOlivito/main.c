@@ -7,20 +7,25 @@
 #include "auto.h"
 #include "servicios.h"
 #include "trabajo.h"
+#include "informes.h"
 
 #define TAM 9
 #define TAMM 5
 #define TAMC 5
-#define TAMHARD 6
+#define TAMHARD 8
 #define TAMS 4
-#define TAMTRAB 3
+#define TAMTRAB 7
+#define TAMHARDT 6
+
+void hardCodearTrabajos(eTrabajo vec[], int tam);
+
 int main()
 {
-
 char respuesta;
 char seguir = 's';
-int idTrab=50;
+
 eAuto autos[TAM];
+eTrabajo trabajo[TAMTRAB];
 eMarca marcas[TAMM]= {{1000,"Renault"},{1001,"Fiat"},{1002,"Ford"},{1003,"Chevrolet"},{1004,"Peugeot"}};
 eColor colores[TAMC]= {{5000,"Negro"},{5001,"Blanco"},{5002,"Gris"},{5003,"Rojo"},{5004,"Azul"}};
 eServicio servicios[TAMS] ={
@@ -29,23 +34,29 @@ eServicio servicios[TAMS] ={
         {20002,"Encerado",400},
         {20003,"Completo",600},
     };
-eTrabajo trabajos[TAMTRAB];
-inicializarAutos(autos,TAM);
-inicializarTrabajo(trabajos,TAMTRAB);
 
+inicializarTrabajo(trabajo,TAMTRAB);
+inicializarAutos(autos,TAM);
+hardCodearTrabajos(trabajo, TAMHARDT);
+int idTrab=50 + TAMHARDT;
 int flag=-1;
+
 if(hardcodeo(autos,TAMHARD))
 {
         flag=1;
+
 }
+int idAuto=1000 + TAMHARD;
+
 do
 {
 
 switch(menuOpciones())
         {
         case 'a':
-           if(altaAuto(autos,TAM,colores,TAMC,marcas,TAMM)){
+           if(altaAuto(autos,TAM,colores,TAMC,marcas,TAMM,idAuto)){
                 flag=1;
+                idAuto++;
            }
             break;
         case 'b':
@@ -55,7 +66,7 @@ switch(menuOpciones())
 
             }else
             {
-               modificarAuto(autos,TAMC,marcas,TAMM,colores,TAMC);
+               modificarAuto(autos,TAM,marcas,TAMM,colores,TAMC);
             }
             break;
         case 'c':
@@ -65,11 +76,11 @@ switch(menuOpciones())
 
             }else
             {
-                bajaAuto(autos,TAMC,marcas,TAMM,colores,TAMC);
+                bajaAuto(autos,TAM,marcas,TAMM,colores,TAMC);
             }
            break;
         case 'd':
-            ordenar(autos,TAMC);
+            ordenar(autos,TAM);
             mostrarAutos(autos,TAM,marcas,TAMM,colores,TAMC);
             break;
         case 'e':
@@ -88,12 +99,18 @@ switch(menuOpciones())
            listarServicios(servicios,TAMS);
             break;
         case 'h':
-           altaTrabajo(idTrab,trabajos,TAMTRAB,autos,TAM,servicios,TAMS,marcas,TAMM,colores,TAMC);
+            if(altaTrabajo(idTrab,trabajo,TAMTRAB,autos,TAM,servicios,TAMS,marcas,TAMM,colores,TAMC)){
+               idTrab++;
+            }
+
             break;
         case 'i':
-           mostrarTrabajos(trabajos,TAMTRAB,servicios,TAMS);
+           mostrarTrabajos(trabajo,TAMTRAB,servicios,TAMS);
             break;
         case 'j':
+            informes(autos,TAM,colores,TAMC,marcas,TAMM,trabajo,TAMTRAB,servicios,TAMS);
+            break;
+        case 'k':
             printf("\nSeguro que desea salir?s/n: ");
             fflush(stdin);
             scanf("%c", &respuesta);
@@ -109,4 +126,27 @@ switch(menuOpciones())
 
 
 return 0;
+}
+
+
+void hardCodearTrabajos(eTrabajo vec[], int tam)
+{
+    eTrabajo trabajo [8]=
+    {
+
+        {"CAI202",20000,50,0,{12,3,2019}},
+        {"LOL431",20000,51,0,{2,4,2019}},
+        {"IND666",20001,52,0,{7,1,2019}},
+        {"ROJ201",20002,53,0,{9,11,2019}},
+        {"BKD999",20003,54,0,{12,12,2019}},
+        {"LOA495",20001,55,0,{21,7,2019}},
+        {"SAW123",20002,56,0,{21,7,2019}},
+        {"JBV555",20003,57,0,{21,7,2019}},
+
+    };
+
+    for(int i=0; i<tam; i++)
+    {
+        vec[i]= trabajo[i];
+    }
 }

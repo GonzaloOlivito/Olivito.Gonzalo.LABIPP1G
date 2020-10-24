@@ -16,7 +16,6 @@ char menuOpciones()
 {
     char opcion;
     system("cls");
-
     printf("BIENVENIDO \n\n");
     printf("A.Alta auto\n");
     printf("B.Modificar auto\n");
@@ -27,7 +26,8 @@ char menuOpciones()
     printf("G.Listar Servicios\n");
     printf("H.Alta trabajo\n");
     printf("I.Mostrar trabajos\n");
-    printf("J.Salir\n");
+    printf("J.Informes\n");
+    printf("K.Salir\n");
     printf("Ingrese la opcion deseada: ");
     fflush(stdin);
     scanf("%c", &opcion);
@@ -94,25 +94,20 @@ int buscarAuto(int id, eAuto vec[], int tam)
     return retorno;
 }
 
-int altaAuto(eAuto vec[], int tam, eColor colores[], int tamc, eMarca marcas[], int tamM)
+int altaAuto(eAuto vec[], int tam, eColor colores[], int tamc, eMarca marcas[], int tamM, int idAuto)
 {
     system("cls");
     printf("**ALTA AUTO**\n\n");
     int todoOk=0;
     int libre=buscarLibre(vec,tam);
-    int esta;
-    int id;
+
     if(libre==-1)
     {
         printf("No hay lugar\n");
     }
     else
     {
-        getIntRange(&id,0,9999,"Ingrese id (entre 0 y 9999): ");
-        esta=buscarAuto(id,vec,tam);
-        if(esta==-1)
-        {
-            vec[libre].id=id;
+            getStringAlphaNum(7,"Ingrese la patente del auto (XXX123):",vec[libre].patentes);
             getIntRange(&vec[libre].modelo,1950,2020,"Ingrese el modelo del auto: ");
             printf("\n");
             listarMarcas(marcas,tamM);
@@ -120,20 +115,16 @@ int altaAuto(eAuto vec[], int tam, eColor colores[], int tamc, eMarca marcas[], 
             printf("\n");
             listarColores(colores,tamc);
             getIntRange(&vec[libre].idColor,5000,5004,"Ingrese el id color: ");
-            getStringAlphaNum(20,"Ingrese la patente del auto(xxx 000):", vec[libre].patentes);
-
+            vec[libre].id=idAuto;
             vec[libre].isEmpty=0;
             todoOk=1;
             printf("\nAlta exitosa! \n");
         }
-        else
-        {
-            printf("El id ya esta registrado, reintente.\n");
-        }
+        return todoOk;
     }
 
-    return todoOk;
-}
+
+
 
 void mostrarAuto (eAuto unAuto, eMarca marcaAuto[], int tamM, eColor colorAuto[], int tamC)
 {
@@ -165,35 +156,21 @@ void mostrarAutos (eAuto vec[], int tam, eMarca marcaAuto[], int tamM, eColor co
 }
 
 
-int hardcodeo(eAuto vec[], int tam)
-{
-    int retorno=-1;
-    for(int i=0; i<tam; i++)
-    {
-        vec[i].id=ids[i];
-        vec[i].idColor=idsColor[i];
-        vec[i].idMarca=idsMarca[i];
-        vec[i].modelo=modelos[i];
-        strcpy(vec[i].patentes,patentes[i]);
-        vec[i].isEmpty=0;
-        retorno=1;
-    }
-    return retorno;
-}
+
 
 
 int modificarAuto(eAuto vec[], int tam, eMarca marca[], int tamM, eColor color[], int tamc)
 {
-    int id;
+    char patenteAux[7];
     int eleccion;
     int retorno=-1;
-    int esta;
+
     system("cls");
     printf("***MENU MODIFICACION***\n\n");
     mostrarAutos(vec,tam,marca,tamM,color,tamc);
 
-    getIntRange(&id,0,9999,"Ingrese el id a modificar: ");
-    esta=buscarAuto(id,vec,tam);
+    getStringAlphaNum(7,"Ingrese la patente a buscar (XXX123):",patenteAux);
+   int esta=buscarPatente(vec,tam,patenteAux);
     if(esta== -1)
     {
         printf("Id mal ingresado, reintente.");
@@ -230,26 +207,23 @@ int modificarAuto(eAuto vec[], int tam, eMarca marca[], int tamM, eColor color[]
 
 int bajaAuto(eAuto vec[], int tam, eMarca marca[], int tamM, eColor color[], int tamc)
 {
-    int id;
+
     char eleccion;
     int retorno=-1;
-    int esta;
+    char patenteAux[7];
     system("cls");
     printf("***MENU BAJA***\n\n");
    mostrarAutos(vec,tam,marca,tamM,color,tamc);
 
-    getIntRange(&id,0,9999,"Ingrese el id a dar de baja: ");
-    esta=buscarAuto(id,vec,tam);
-    if(esta== -1)
+    getStringAlphaNum(7,"Ingrese la patente a buscar (XXX123):",patenteAux);
+   int esta=buscarPatente(vec,tam,patenteAux);
+
+    if(esta == -1)
     {
-        printf("Id mal ingresado, reintente.");
+        printf("Patente mal ingresada, reintente.");
     }
     else
     {
-        system("cls");
-        printf("\nSelecciono: \n");
-        printf("ID      MARCA      COLOR     PATENTE   MODELO     \n");
-        mostrarAuto(vec[esta],marca,tamM,color,tamc);
         getChar(3,&eleccion,"Confirma baja? s/n: ");
         if(eleccion == 's')
         {
@@ -286,5 +260,36 @@ void ordenar(eAuto vec[], int tam)
             }
         }
     }
+}
+
+int buscarPatente(eAuto vec[], int tam, char patenteAux[])
+{
+      int indice = -1;
+
+    for(int i=0; i < tam; i++)
+    {
+        if((vec[i].isEmpty == 0)&& strcmp(vec[i].patentes, patenteAux)==0)
+        {
+            indice = i;
+            break;
+        }
+    }
+    return indice;
+}
+
+int hardcodeo(eAuto vec[], int tam)
+{
+    int retorno=-1;
+    for(int i=0; i<tam; i++)
+    {
+        vec[i].id=ids[i];
+        vec[i].idColor=idsColor[i];
+        vec[i].idMarca=idsMarca[i];
+        vec[i].modelo=modelos[i];
+        strcpy(vec[i].patentes,patentes[i]);
+        vec[i].isEmpty=0;
+        retorno=1;
+    }
+    return retorno;
 }
 

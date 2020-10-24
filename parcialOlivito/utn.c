@@ -200,7 +200,7 @@ void getStringAlphaNum(int longMax, char* mensaje, char* dondeAsignar)
         }
     }
 
-    strlwr(aux);
+
     aux[0]=toupper(aux[0]);
 
     while( aux[i] != '\0')

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "trabajo.h"
 #include "auto.h"
 #include "servicios.h"
@@ -9,12 +10,11 @@
 
 void inicializarTrabajo(eTrabajo trabajos[], int tamtrab)
 {
+
     for(int i=0; i<tamtrab; i++)
     {
 
-
-        trabajos[i].isEmpty=1;
-
+            trabajos[i].isEmpty=1;
 
     }
 }
@@ -43,42 +43,35 @@ int altaTrabajo(int idTrabajo, eTrabajo trabajos[], int tamtrab, eAuto vec[], in
     system("cls");
     printf("**ALTA TRABAJO**\n\n");
     int retorno=0;
+    char patenteAux[20];
     int libre=buscarLibreTrabajo(trabajos,tamtrab);
-    int auxIdAuto;
-    int estaAuto;
-
-    if(libre==-1)
-    {
-        printf("No hay lugar\n");
-    }
-    else
-    {
-
 
         mostrarAutos(vec,tam,marcas,tamM,colores,tamc);
-        getIntRange(&auxIdAuto,0,9999,"Ingrese el ID del auto (entre 0 y 9999): ");
-        estaAuto=buscarAuto(auxIdAuto,vec,tam);
-        if(estaAuto ==-1)
+        getStringAlphaNum(20,"Ingrese la patente(XXX123):",patenteAux);
+        int indicePatente=buscarPatente(vec,tam,patenteAux);
+        if(indicePatente==-1)
         {
-            printf("Id mal ingresado. Reintente");
+            printf("Patente mal ingresada o inexistente. Reintente");
         }
         else
+            if(libre==-1)
         {
-            trabajos[libre].idAuto=auxIdAuto;
+            printf("No hay mas lugar");
+        }else
+        {
+            strcpy(trabajos[libre].patente, patenteAux);
             listarServicios(servicios,tams);
             getIntRange(&trabajos[libre].idServicio,20000,20003,"Ingrese el ID del servicio a realizar: " );
             trabajos[libre].idTrabajo=idTrabajo;
             getIntRange(&trabajos[libre].fecha.dia,0,31,"Ingrese el dia: ");
             getIntRange(&trabajos[libre].fecha.mes,0,12,"Ingrese el mes: ");
             getIntRange(&trabajos[libre].fecha.anio,1950,2020,"Ingrese el anio (entre 1950 y 2020): ");
+
             trabajos[libre].isEmpty=0;
 
             retorno=1;
             printf("\nAlta de trabajo exitosa! \n");
         }
-
-
-    }
 
     return retorno;
 }
@@ -87,7 +80,7 @@ void mostrarTrabajo (eTrabajo trabajo, eServicio servicios[], int tams)
 {
     char servicioDes[20];
     cargarDescripcionServicio(servicios,tams,trabajo.idServicio,servicioDes);
-    printf("%4d    %8d  %10s    %.2d/%.2d/%d\n", trabajo.idTrabajo,trabajo.idAuto,servicioDes,trabajo.fecha.dia,trabajo.fecha.mes
+    printf("%4d    %10s  %10s    %.2d/%.2d/%d\n", trabajo.idTrabajo,trabajo.patente,servicioDes,trabajo.fecha.dia,trabajo.fecha.mes
                                                                                                             ,trabajo.fecha.anio);
 }
 
@@ -95,7 +88,7 @@ void mostrarTrabajos (eTrabajo trabajos[], int tamtrab, eServicio servicios[], i
 {
     system("cls");
     printf("** LISTADO TRABAJOS ** \n\n");
-    printf("ID TRABAJO  ID AUTO  SERVICIO   PRECIO  FECHA\n");
+    printf("ID TRABAJO  PATENTE  SERVICIO  PRECIO  FECHA\n");
 
     for(int i =0; i<tamtrab; i++)
     {
@@ -108,4 +101,17 @@ void mostrarTrabajos (eTrabajo trabajos[], int tamtrab, eServicio servicios[], i
     }
 
 }
+
+int hardcodeoTrab(eAuto vec[], int tam, eTrabajo trabajos[], int tamt)
+{
+    int retorno=-1;
+    for(int i=0; i<tamt; i++)
+    {
+
+        vec[i].isEmpty=0;
+        retorno=1;
+    }
+    return retorno;
+}
+
 

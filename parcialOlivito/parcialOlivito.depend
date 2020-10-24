@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602895222 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\auto.c
+1603478572 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -21,14 +21,14 @@
 	<string.h>
 	"marca.h"
 
-1602886196 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\utn.c
+1603476886 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	<ctype.h>
 
-1602896368 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\main.c
+1603426704 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -39,9 +39,9 @@
 	"servicios.h"
 	"trabajo.h"
 
-1602889450 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\hardcodeo.h
+1603477950 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\hardcodeo.h
 
-1602893559 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\auto.h
+1603477989 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\auto.h
 	"marca.h"
 	"color.h"
 
@@ -59,13 +59,13 @@
 
 1602893916 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\servicios.h
 
-1602895222 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\trabajo.h
+1603427331 c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\trabajo.h
 	"marca.h"
 	"color.h"
 	"auto.h"
 	"servicios.h"
 
-1602896345 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\trabajo.c
+1603478085 source:c:\users\lenovo\desktop\olivito.gonzalo.labipp1g\parcialolivito\trabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -74,4 +74,97 @@
 	"servicios.h"
 	"utn.h"
 	"marca.h"
+
+1603479392 source:c:\users\lenovo\desktop\practican22-main\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+
+1603479392 c:\users\lenovo\desktop\practican22-main\color.h
+
+1603496424 source:c:\users\lenovo\desktop\practican22-main\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"color.h"
+	"marca.h"
+	"auto.h"
+	"servicios.h"
+	"trabajo.h"
+	"informes.h"
+
+1603479392 c:\users\lenovo\desktop\practican22-main\utn.h
+
+1603479392 c:\users\lenovo\desktop\practican22-main\marca.h
+
+1603490351 c:\users\lenovo\desktop\practican22-main\auto.h
+	"marca.h"
+	"color.h"
+
+1603497108 c:\users\lenovo\desktop\practican22-main\servicios.h
+
+1603487083 c:\users\lenovo\desktop\practican22-main\trabajo.h
+	"marca.h"
+	"color.h"
+	"auto.h"
+	"servicios.h"
+
+1603479392 source:c:\users\lenovo\desktop\practican22-main\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"marca.h"
+
+1603479392 source:c:\users\lenovo\desktop\practican22-main\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicios.h"
+
+1603488042 source:c:\users\lenovo\desktop\practican22-main\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"trabajo.h"
+	"auto.h"
+	"servicios.h"
+	"utn.h"
+	"marca.h"
+
+1603479392 source:c:\users\lenovo\desktop\practican22-main\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1603495167 source:c:\users\lenovo\desktop\practican22-main\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"auto.h"
+	"utn.h"
+	"hardcodeo.h"
+	"marca.h"
+	"color.h"
+
+1603485306 c:\users\lenovo\desktop\practican22-main\hardcodeo.h
+
+1603497413 c:\users\lenovo\desktop\practican22-main\informes.h
+	"trabajo.h"
+	"servicios.h"
+
+1603497858 source:c:\users\lenovo\desktop\practican22-main\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"auto.h"
+	"color.h"
+	"informes.h"
+	"marca.h"
+	"servicios.h"
+	"utn.h"
+	"trabajo.h"
 

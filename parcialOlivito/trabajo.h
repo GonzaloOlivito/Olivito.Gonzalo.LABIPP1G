@@ -15,11 +15,12 @@ int anio;
 }eFecha;
 
 typedef struct{
-int idAuto;
+char patente[20];
 int idServicio;
 int idTrabajo;
 int isEmpty;
 eFecha fecha;
+
 }eTrabajo;
 
 
@@ -32,3 +33,4 @@ int altaTrabajo(int idTrabajo, eTrabajo trabajos[], int tamtrab, eAuto vec[], in
 
 void mostrarTrabajo (eTrabajo trabajo, eServicio servicios[], int tams);
 void mostrarTrabajos (eTrabajo trabajos[], int tamtrab, eServicio servicios[], int tams);
+int hardcodeoTrabajo(eAuto vec[], int tam, eTrabajo trabajos[],int tamt);
